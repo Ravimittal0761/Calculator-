@@ -1,0 +1,27 @@
+import {useState} from 'react';
+import {Button,View ,Text,Modal} from 'react-native';
+export default function App(){
+  const [isModalVisible, setIsModalVisible]=useState(false);
+  return(
+    <View style={{flex:1,backgroundColor:'plum',padding:60}}>
+    <Button title='Press'
+    onPress={()=> setIsModalVisible(true)}
+    color='red'
+    />
+    <Modal visible={isModalVisible}
+    onRequestClose={ () =>setIsModalVisible(false)}
+    animationType="slide"
+    presentationStyle="">
+     <View style={{flex:1,backgroundColor:'plum',padding:60}}>
+     <Text> Modal content</Text>
+     <Button title='Close'
+     onPress={()=>setIsModalVisible(false)}
+     />
+     </View>
+     </Modal>
+     </View>
+
+  );
+}
+
+
